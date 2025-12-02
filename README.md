@@ -836,7 +836,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Authors
 
-- **Mainak Jana** - *Full Stack Developer* - [YourGitHub](https://github.com/yourusername)
+- **Mainak Jana** - *Full Stack Developer* - [YourGitHub](https://github.com/J23Mainak)
 
 ---
 
@@ -855,7 +855,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 For questions or support:
 - **Email**: support@clarityretinacare.com
-- **Issues**: [GitHub Issues](https://github.com/yourusername/clarity-retina-care/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/clarity-retina-care/discussions)
+- **Issues**: [GitHub Issues](https://github.com/J23Mainak/EyeCare/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/J23Mainak/EyeCare/discussions)
 
-**Made with ❤️ for better eye health**
+**Made with ❤️ for better health**
