@@ -8,7 +8,7 @@ A comprehensive full-stack healthcare application for early detection and manage
 
 ---
 
-## 🎯 Project Overview
+## Project Overview
 
 Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **AI-powered retina scan analysis** using a custom CNN model for 5-stage diabetic retinopathy classification
