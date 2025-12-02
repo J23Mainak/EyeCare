@@ -2,7 +2,7 @@
 
 A comprehensive full-stack healthcare application for early detection and management of diabetic retinopathy using deep learning, with integrated doctor finder, AI chat assistant, and health reminder features.
 
-## 📺 Demo Video
+## Demo Video
 
 [**Watch Project Demo Video**](https://drive.google.com/file/d/1eeUjscZdhrJTFgO1HOKJz9EoOh610uTH/view?usp=sharing)
 
@@ -19,7 +19,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 
 ---
 
-## 🏗️ Architecture
+## Architecture
 
 ### Frontend
 
@@ -59,7 +59,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 
 ---
 
-## ✨ Features
+## Features
 
 ### Patient Features
 - **Retina Scan Analysis**: Upload fundus images for AI-powered 5-stage diabetic retinopathy detection
@@ -84,7 +84,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 - **Framework**: React 18 with TypeScript
@@ -125,7 +125,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 
 ---
 
-## 📋 Prerequisites
+## Prerequisites
 
 Before you begin, ensure you have the following installed:
 
@@ -216,7 +216,7 @@ clarity-retina-care/
 
 ---
 
-## 🔧 Environment Variables
+## Environment Variables
 
 ### Frontend `.env`
 
@@ -361,7 +361,7 @@ You need to run **4 services** simultaneously. Open 4 separate terminal windows:
 ```bash
 npm run dev
 ```
-🌐 Frontend runs at: http://localhost:5173
+Frontend runs at: http://localhost:5173
 
 ### Terminal 2: Backend API
 
@@ -369,7 +369,7 @@ npm run dev
 cd backend
 npm run dev
 ```
-🔌 Backend API runs at: http://localhost:5000
+Backend API runs at: http://localhost:5000
 
 ### Terminal 3: CNN Model Service
 
@@ -385,7 +385,7 @@ source .venv/bin/activate
 # Start service
 uvicorn predict_service:app --reload --port 8501
 ```
-🤖 CNN Service runs at: http://localhost:8501
+CNN Service runs at: http://localhost:8501
 
 ### Terminal 4: RAG Chat Service
 
@@ -401,11 +401,11 @@ source .venv/bin/activate
 # Start service
 uvicorn main:app --reload --port 8502
 ```
-💬 RAG Service runs at: http://localhost:8502
+RAG Service runs at: http://localhost:8502
 
 ---
 
-## 🐳 Docker Deployment (CNN Model Service)
+## Docker Deployment (CNN Model Service)
 
 ### Build Docker Image
 
@@ -496,7 +496,7 @@ docker-compose up -d
 
 ---
 
-## 📡 API Documentation
+## API Documentation
 
 ### Authentication Endpoints
 
@@ -785,7 +785,7 @@ gcloud run deploy rag-service \
 
 ---
 
-## 🔐 Security Best Practices
+## Security Best Practices
 
 1. **Never commit `.env` files** to version control
 2. **Use strong JWT secrets** (32+ characters)
@@ -800,7 +800,7 @@ gcloud run deploy rag-service \
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 We welcome contributions! Please follow these steps:
 
@@ -828,19 +828,19 @@ We welcome contributions! Please follow these steps:
 
 ---
 
-## 📝 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👥 Authors
+## Authors
 
 - **Mainak Jana** - *Full Stack Developer* - [YourGitHub](https://github.com/yourusername)
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - **TensorFlow Team** for the deep learning framework
 - **Shadcn** for the beautiful UI components
@@ -851,7 +851,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📧 Support
+## Support
 
 For questions or support:
 - **Email**: support@clarityretinacare.com
