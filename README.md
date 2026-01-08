@@ -271,7 +271,7 @@ GOOGLE_API_KEY=your_gemini_api_key
 
 ---
 
-## -> Installation & Setup
+## >> Installation & Setup
 
 ### 1️> Clone the Repository
 
@@ -352,7 +352,7 @@ cd ../..
 
 ---
 
-## -> Running the Application
+## >> Running the Application
 
 You need to run **4 services** simultaneously. Open 4 separate terminal windows:
 
