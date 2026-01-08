@@ -42,7 +42,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 ### Microservices
 1. CNN Service
 
-- FastAPI (Python)
+- FastAPI (Python- 3.11.9 version only)
 - Runs on: Port 8501
 - Performs CNN classification tasks
 
@@ -130,7 +130,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 Before you begin, ensure you have the following installed:
 
 - **Node.js**: v18 or higher ([Download](https://nodejs.org/))
-- **Python**: 3.9+ ([Download](https://www.python.org/downloads/))
+- **Python**: 3.11.9 only ([Download](https://www.python.org/downloads/))
 - **MongoDB**: Atlas account or local installation ([MongoDB Atlas](https://www.mongodb.com/cloud/atlas))
 - **Git**: For cloning the repository ([Download](https://git-scm.com/))
 
