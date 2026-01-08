@@ -271,22 +271,22 @@ GOOGLE_API_KEY=your_gemini_api_key
 
 ---
 
-## 🚀 Installation & Setup
+## -> Installation & Setup
 
-### 1️⃣ Clone the Repository
+### 1️> Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/clarity-retina-care.git
 cd clarity-retina-care
 ```
 
-### 2️⃣ Install Frontend Dependencies
+### 2️> Install Frontend Dependencies
 
 ```bash
 npm install
 ```
 
-### 3️⃣ Install Backend Dependencies
+### 3️> Install Backend Dependencies
 
 ```bash
 cd backend
@@ -294,7 +294,7 @@ npm install
 cd ..
 ```
 
-### 4️⃣ Setup Python Virtual Environments
+### 4️> Setup Python Virtual Environments
 
 #### CNN Model Service
 
@@ -328,13 +328,13 @@ pip install -r requirements.txt
 cd ../..
 ```
 
-### 5️⃣ Configure Environment Variables
+### 5️> Configure Environment Variables
 
 1. Copy `.env.example` to `.env` in root directory
 2. Copy `backend/.env.example` to `backend/.env`
 3. Fill in all required API keys and credentials
 
-### 6️⃣ Setup MongoDB Database
+### 6️> Setup MongoDB Database
 
 1. Create a MongoDB Atlas account at https://www.mongodb.com/cloud/atlas
 2. Create a new cluster
@@ -342,7 +342,7 @@ cd ../..
 4. Create a database user
 5. Copy the connection string to `MONGODB_URI` in `backend/.env`
 
-### 7️⃣ Setup Gmail App Password
+### 7️> Setup Gmail App Password
 
 1. Enable 2-Factor Authentication on your Google account
 2. Go to Google Account > Security > App passwords
@@ -352,7 +352,7 @@ cd ../..
 
 ---
 
-## ▶️ Running the Application
+## -> Running the Application
 
 You need to run **4 services** simultaneously. Open 4 separate terminal windows:
 
@@ -628,80 +628,7 @@ curl -X POST http://localhost:8502/api/rag/chat \
 
 ---
 
-## Troubleshooting
-
-### Common Issues
-
-#### 1. MongoDB Connection Error
-```bash
-Error: MongooseServerSelectionError: Could not connect to MongoDB
-```
-**Solution**: 
-- Check your `MONGODB_URI` in `.env`
-- Ensure your IP is whitelisted in MongoDB Atlas
-- Verify database user credentials
-
-#### 2. Email Sending Fails
-```bash
-❌ Email sending failed: Invalid login
-```
-**Solution**:
-- Use Gmail App Password, not your regular password
-- Remove all spaces from the 16-character app password
-- Ensure 2FA is enabled on your Google account
-
-#### 3. Python Module Not Found
-```bash
-ModuleNotFoundError: No module named 'tensorflow'
-```
-**Solution**:
-```bash
-# Ensure virtual environment is activated
-# Windows:
-.venv\Scripts\activate
-# Then reinstall:
-pip install -r predict_requirements.txt
-```
-
-#### 4. Port Already in Use
-```bash
-Error: listen EADDRINUSE: address already in use :::5000
-```
-**Solution**:
-```bash
-# Windows:
-netstat -ano | findstr :5000
-taskkill /PID <PID> /F
-
-# macOS/Linux:
-lsof -ti:5000 | xargs kill -9
-```
-
-#### 5. Google Maps Not Loading
-**Solution**:
-- Verify `VITE_GOOGLE_MAPS_API_KEY` in frontend `.env`
-- Enable Maps JavaScript API in Google Cloud Console
-- Check browser console for API key errors
-
-#### 6. OTP Email Not Received
-**Solution**:
-- Check spam/junk folder
-- Verify `EMAIL_USER` and `EMAIL_PASSWORD` in backend `.env`
-- Test email credentials with a simple script
-- Ensure Gmail "Less secure app access" is NOT enabled (use App Password instead)
-
-#### 7. CNN Model Returns Error
-```bash
-Error: Could not load model
-```
-**Solution**:
-- Ensure `dr_model.h5` exists in `backend/cnn_model/models/`
-- Check TensorFlow version compatibility
-- Verify image format (should be JPG/PNG)
-
----
-
-## Production Deployment
+## -> Production Deployment
 
 ### Frontend (Vercel/Netlify)
 
@@ -764,7 +691,7 @@ gcloud run deploy rag-service \
 
 ---
 
-## 📊 Performance Optimization
+## -> Performance Optimization
 
 ### Frontend
 - Code splitting with React.lazy()
@@ -782,21 +709,6 @@ gcloud run deploy rag-service \
 - Model quantization for faster inference
 - Batch processing for multiple images
 - Caching predictions in Redis (optional)
-
----
-
-## Security Best Practices
-
-1. **Never commit `.env` files** to version control
-2. **Use strong JWT secrets** (32+ characters)
-3. **Implement rate limiting** on all endpoints
-4. **Sanitize user inputs** with express-validator
-5. **Use HTTPS** in production
-6. **Enable CORS** only for trusted domains
-7. **Hash passwords** with bcryptjs (12+ rounds)
-8. **Implement OTP expiration** (10 minutes)
-9. **Use prepared statements** to prevent NoSQL injection
-10. **Regular security audits** with npm audit
 
 ---
 
@@ -831,31 +743,5 @@ We welcome contributions! Please follow these steps:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## Authors
-
-- **Mainak Jana** - *Full Stack Developer* - [YourGitHub](https://github.com/J23Mainak)
-
----
-
-## Acknowledgments
-
-- **TensorFlow Team** for the deep learning framework
-- **Shadcn** for the beautiful UI components
-- **MongoDB** for the flexible database
-- **Google Cloud** for Maps and Gemini APIs
-- **Cloudinary** for image hosting
-- **FastAPI** for the high-performance Python framework
-
----
-
-## Support
-
-For questions or support:
-- **Email**: support@clarityretinacare.com
-- **Issues**: [GitHub Issues](https://github.com/J23Mainak/EyeCare/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/J23Mainak/EyeCare/discussions)
 
 **Made with ❤️ for better health**
