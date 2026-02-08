@@ -19,25 +19,25 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 
 ## Architecture
 
-### Frontend
+> Frontend
 
 - React App
 - Runs on: Port 5173 (development)
 - Communicates with Backend API
 
-### Backend API
+> Backend API
 
 - Express.js server
 - Runs on: Port 5000
 - Handles:  Authentication, User management, Report storage, Reminders
 - Connects to MongoDB and other services
 
-### Database
+> Database
 
 - MongoDB
 - QdrantDB
 
-### Microservices
+> Microservices
 1. CNN Service
 
 - FastAPI (Python- 3.11.9 version only)
@@ -55,11 +55,9 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - External cloud storage
 - Stores uploaded images (e.g., retinal scans)
 
----
-
 ## Features
 
-### Patient Features
+> Patient Features
 - **Retina Scan Analysis**: Upload fundus images for AI-powered 5-stage diabetic retinopathy detection
 - **Doctor Finder**: Search nearby ophthalmologists with filters (specialization, rating, distance)
 - **AI Chat Assistant**: Get instant medical information using RAG-powered chat
@@ -67,24 +65,22 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **Report History**: Track all scan reports with detailed analysis
 - **Secure Authentication**: OTP-based email verification for enhanced security
 
-### Admin Features
+> Admin Features
 - **User Management**: View, search, and manage all users
 - **System Analytics**: Dashboard with statistics and insights
 - **Document Management**: Upload PDFs and URLs to RAG knowledge base
 - **Report Monitoring**: Track all patient scans and results
 
-### Technical Features
+> Technical Features
 - **5-Stage DR Classification**: No DR, Mild, Moderate, Severe, Proliferative DR
 - **Geospatial Search**: Find doctors within specified radius using MongoDB geospatial queries
 - **RAG Architecture**: Retrieval-Augmented Generation for accurate medical responses
 - **Email Notifications**: Automated reminders using Nodemailer with Gmail
 - **Real-time Updates**: WebSocket support for instant notifications
 
----
-
 ## Tech Stack
 
-### Frontend
+> Frontend
 - **Framework**: React 18 with TypeScript
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS
@@ -94,7 +90,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **Maps**: Google Maps JavaScript API
 - **HTTP Client**: Axios & Fetch API
 
-### Backend
+> Backend
 - **Runtime**: Node.js 18+
 - **Framework**: Express.js
 - **Database**: MongoDB with Mongoose ODM
@@ -104,24 +100,22 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **Validation**: Express-validator
 - **Security**: Helmet.js, CORS, bcryptjs
 
-### ML Services
+> ML Services
 
-#### CNN Model Service (Port 8501)
+1. CNN Model Service (Port 8501)
 - **Framework**: TensorFlow/Keras
 - **API**: FastAPI
 - **Server**: Uvicorn
 - **Model**: Custom CNN for DR classification
 - **Image Processing**: OpenCV, Pillow
 
-#### RAG Service (Port 8502)
+2. RAG Service (Port 8502)
 - **Framework**: LangChain
 - **Vector DB**: ChromaDB
 - **Embeddings**: Sentence Transformers
 - **LLM**: Google Gemini API
 - **API**: FastAPI
 - **Document Processing**: PyPDF2, BeautifulSoup4
-
----
 
 ## Prerequisites
 
@@ -216,7 +210,7 @@ clarity-retina-care/
 
 ## Environment Variables
 
-### Frontend `.env`
+> Frontend `.env`
 
 ```env
 # Google Maps API Key (Enable Maps JavaScript API)
@@ -226,7 +220,7 @@ VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
-### Backend `.env`
+> Backend `.env`
 
 ```env
 # MongoDB Connection
@@ -259,7 +253,7 @@ PREDICT_SERVICE_URL=http://127.0.0.1:8501
 RAG_SERVICE_URL=http://127.0.0.1:8502
 ```
 
-### Python Services `.env` (Optional)
+> Python Services `.env` (Optional)
 
 Create a `.env` file in `backend/rag_service/`:
 
@@ -269,22 +263,22 @@ GOOGLE_API_KEY=your_gemini_api_key
 
 ---
 
-## >> Installation & Setup
+>> Installation & Setup
 
-### 1️> Clone the Repository
+1> Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/clarity-retina-care.git
 cd clarity-retina-care
 ```
 
-### 2️> Install Frontend Dependencies
+2> Install Frontend Dependencies
 
 ```bash
 npm install
 ```
 
-### 3️> Install Backend Dependencies
+3> Install Backend Dependencies
 
 ```bash
 cd backend
@@ -292,9 +286,9 @@ npm install
 cd ..
 ```
 
-### 4️> Setup Python Virtual Environments
+4> Setup Python Virtual Environments
 
-#### CNN Model Service
+> CNN Model Service
 
 ```bash
 cd backend/cnn_model
@@ -310,7 +304,7 @@ pip install -r predict_requirements.txt
 cd ../..
 ```
 
-#### RAG Service
+> RAG Service
 
 ```bash
 cd backend/rag_service
@@ -326,13 +320,13 @@ pip install -r requirements.txt
 cd ../..
 ```
 
-### 5️> Configure Environment Variables
+5> Configure Environment Variables
 
 1. Copy `.env.example` to `.env` in root directory
 2. Copy `backend/.env.example` to `backend/.env`
 3. Fill in all required API keys and credentials
 
-### 6️> Setup MongoDB Database
+6> Setup MongoDB Database
 
 1. Create a MongoDB Atlas account at https://www.mongodb.com/cloud/atlas
 2. Create a new cluster
@@ -340,7 +334,7 @@ cd ../..
 4. Create a database user
 5. Copy the connection string to `MONGODB_URI` in `backend/.env`
 
-### 7️> Setup Gmail App Password
+7> Setup Gmail App Password
 
 1. Enable 2-Factor Authentication on your Google account
 2. Go to Google Account > Security > App passwords
@@ -348,20 +342,18 @@ cd ../..
 4. Copy the 16-character password (remove spaces)
 5. Add to `EMAIL_PASSWORD` in `backend/.env`
 
----
-
-## >> Running the Application
+## Running the Application
 
 You need to run **4 services** simultaneously. Open 4 separate terminal windows:
 
-### Terminal 1: Frontend
+> Terminal 1: Frontend
 
 ```bash
 npm run dev
 ```
 Frontend runs at: http://localhost:5173
 
-### Terminal 2: Backend API
+> Terminal 2: Backend API
 
 ```bash
 cd backend
@@ -369,7 +361,7 @@ npm run dev
 ```
 Backend API runs at: http://localhost:5000
 
-### Terminal 3: CNN Model Service
+> Terminal 3: CNN Model Service
 
 ```bash
 cd backend/cnn_model
@@ -385,7 +377,7 @@ uvicorn predict_service:app --reload --port 8501
 ```
 CNN Service runs at: http://localhost:8501
 
-### Terminal 4: RAG Chat Service
+> Terminal 4: RAG Chat Service
 
 ```bash
 cd backend/rag_service
@@ -405,20 +397,20 @@ RAG Service runs at: http://localhost:8502
 
 ## Docker Deployment (CNN Model Service)
 
-### Build Docker Image
+> Build Docker Image
 
 ```bash
 cd backend/cnn_model
 docker build -t clarity-cnn-service .
 ```
 
-### Run Docker Container
+> Run Docker Container
 
 ```bash
 docker run -d -p 8501:8501 --name clarity-cnn clarity-cnn-service
 ```
 
-### Docker Commands
+> Docker Commands
 
 ```bash
 # Check running containers
@@ -437,7 +429,7 @@ docker rm clarity-cnn
 docker rmi clarity-cnn-service
 ```
 
-### Docker Compose (All Services)
+> Docker Compose (All Services)
 
 Create `docker-compose.yml` in the root directory:
 
@@ -496,9 +488,9 @@ docker-compose up -d
 
 ## API Documentation
 
-### Authentication Endpoints
+> Authentication Endpoints
 
-#### Request OTP
+1. Request OTP
 ```http
 POST /api/auth/request-otp
 Content-Type: application/json
@@ -510,7 +502,7 @@ Content-Type: application/json
 }
 ```
 
-#### Verify OTP
+2. Verify OTP
 ```http
 POST /api/auth/verify-otp
 Content-Type: application/json
@@ -522,21 +514,21 @@ Content-Type: application/json
 }
 ```
 
-### Doctor Endpoints
+> Doctor Endpoints
 
-#### Find Nearby Doctors
+1. Find Nearby Doctors
 ```http
 GET /api/doctors/nearby?lat=40.7128&lng=-74.0060&maxDistance=50&specialization=Retina%20Specialist
 ```
 
-#### Get All Doctors
+2. Get All Doctors
 ```http
 GET /api/doctors?page=1&limit=20&specialization=Ophthalmologist
 ```
 
-### Report Endpoints
+> Report Endpoints
 
-#### Analyze Retina Scan
+1. Analyze Retina Scan
 ```http
 POST /api/reports/analyze
 Authorization: Bearer <jwt_token>
@@ -548,15 +540,15 @@ Content-Type: application/json
 }
 ```
 
-#### Get User Reports
+2. Get User Reports
 ```http
 GET /api/reports
 Authorization: Bearer <jwt_token>
 ```
 
-### Reminder Endpoints
+> Reminder Endpoints
 
-#### Create Reminder
+1. Create Reminder
 ```http
 POST /api/reminders
 Authorization: Bearer <jwt_token>
@@ -571,9 +563,9 @@ Content-Type: application/json
 }
 ```
 
-### RAG Chat Endpoints
+> RAG Chat Endpoints
 
-#### Send Message
+1. Send Message
 ```http
 POST http://localhost:8502/api/rag/chat
 Authorization: Bearer <jwt_token>
@@ -585,7 +577,7 @@ Content-Type: application/json
 }
 ```
 
-#### Upload Document to RAG
+2. Upload Document to RAG
 ```http
 POST http://localhost:8502/api/rag/ingest/pdf
 Authorization: Bearer <jwt_token>
@@ -593,38 +585,6 @@ Content-Type: multipart/form-data
 
 file: <pdf_file>
 ```
-
----
-
-## Testing
-
-### Run Frontend Tests
-```bash
-npm run test
-```
-
-### Run Backend Tests
-```bash
-cd backend
-npm run test
-```
-
-### Test CNN Service
-```bash
-curl -X POST http://localhost:8501/predict \
-  -H "Content-Type: application/json" \
-  -d '{"image_url": "https://example.com/retina.jpg"}'
-```
-
-### Test RAG Service
-```bash
-curl -X POST http://localhost:8502/api/rag/chat \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer YOUR_JWT_TOKEN" \
-  -d '{"message": "What is diabetic retinopathy?"}'
-```
-
----
 
 ## -> Production Deployment
 
@@ -689,21 +649,21 @@ gcloud run deploy rag-service \
 
 ---
 
-## -> Performance Optimization
+## Performance Optimization
 
-### Frontend
+> Frontend
 - Code splitting with React.lazy()
 - Image optimization with Cloudinary transforms
 - Caching with React Query
 - Lazy loading for maps
 
-### Backend
+> Backend
 - MongoDB indexing on frequently queried fields
 - Rate limiting with express-rate-limit
 - Compression middleware
 - JWT token expiration strategy
 
-### ML Services
+> ML Services
 - Model quantization for faster inference
 - Batch processing for multiple images
 - Caching predictions in Redis (optional)
@@ -735,11 +695,3 @@ We welcome contributions! Please follow these steps:
 - Write meaningful commit messages
 - Add comments for complex logic
 - Update README if adding new features
-
----
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-**Made with ❤️ for better health**
