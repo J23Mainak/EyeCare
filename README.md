@@ -1,12 +1,8 @@
 # EyeCare: AI-Powered Medical Diagnosis System
 
+[**Live Demo**](https://drive.google.com/file/d/1eeUjscZdhrJTFgO1HOKJz9EoOh610uTH/view?usp=sharing)
+
 A comprehensive full-stack healthcare application for early detection and management of diabetic retinopathy using deep learning, with integrated doctor finder, AI chat assistant, and health reminder features.
-
-## Demo Video
-
-[**Watch Project Demo Video**](https://drive.google.com/file/d/1eeUjscZdhrJTFgO1HOKJz9EoOh610uTH/view?usp=sharing)
-
----
 
 ## Project Overview
 
