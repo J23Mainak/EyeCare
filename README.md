@@ -206,8 +206,6 @@ clarity-retina-care/
 └── README.md                    # This file
 ```
 
----
-
 ## Environment Variables
 
 > Frontend `.env`
