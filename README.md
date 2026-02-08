@@ -1,4 +1,4 @@
-# Clarity Retina Care - AI-Powered Diabetic Retinopathy Detection System
+# EyeCare: AI-Powered Medical Diagnosis System
 
 A comprehensive full-stack healthcare application for early detection and management of diabetic retinopathy using deep learning, with integrated doctor finder, AI chat assistant, and health reminder features.
 
