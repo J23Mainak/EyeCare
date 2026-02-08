@@ -484,111 +484,9 @@ Run with Docker Compose:
 docker-compose up -d
 ```
 
----
+## Production Deployment
 
-## API Documentation
-
-> Authentication Endpoints
-
-1. Request OTP
-```http
-POST /api/auth/request-otp
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "password": "password123",
-  "type": "login" | "signup" | "admin"
-}
-```
-
-2. Verify OTP
-```http
-POST /api/auth/verify-otp
-Content-Type: application/json
-
-{
-  "email": "user@example.com",
-  "otp": "123456",
-  "type": "login"
-}
-```
-
-> Doctor Endpoints
-
-1. Find Nearby Doctors
-```http
-GET /api/doctors/nearby?lat=40.7128&lng=-74.0060&maxDistance=50&specialization=Retina%20Specialist
-```
-
-2. Get All Doctors
-```http
-GET /api/doctors?page=1&limit=20&specialization=Ophthalmologist
-```
-
-> Report Endpoints
-
-1. Analyze Retina Scan
-```http
-POST /api/reports/analyze
-Authorization: Bearer <jwt_token>
-Content-Type: application/json
-
-{
-  "imageUrl": "https://cloudinary.com/image.jpg",
-  "publicId": "clarity-retina-care/scan123"
-}
-```
-
-2. Get User Reports
-```http
-GET /api/reports
-Authorization: Bearer <jwt_token>
-```
-
-> Reminder Endpoints
-
-1. Create Reminder
-```http
-POST /api/reminders
-Authorization: Bearer <jwt_token>
-Content-Type: application/json
-
-{
-  "title": "Take Metformin",
-  "note": "500mg after breakfast",
-  "dateTime": "2025-01-15T09:00:00Z",
-  "notificationType": "email",
-  "contactInfo": "user@example.com"
-}
-```
-
-> RAG Chat Endpoints
-
-1. Send Message
-```http
-POST http://localhost:8502/api/rag/chat
-Authorization: Bearer <jwt_token>
-Content-Type: application/json
-
-{
-  "message": "What are the symptoms of diabetic retinopathy?",
-  "chat_id": "optional-existing-chat-id"
-}
-```
-
-2. Upload Document to RAG
-```http
-POST http://localhost:8502/api/rag/ingest/pdf
-Authorization: Bearer <jwt_token>
-Content-Type: multipart/form-data
-
-file: <pdf_file>
-```
-
-## -> Production Deployment
-
-### Frontend (Vercel/Netlify)
+> Frontend (Vercel/Netlify)
 
 1. **Build the project**:
 ```bash
@@ -605,7 +503,7 @@ vercel --prod
    - `VITE_GOOGLE_MAPS_API_KEY`
    - `VITE_API_BASE_URL` (your backend URL)
 
-### Backend (Railway/Render)
+> Backend (Railway/Render)
 
 1. **Create `Procfile`** in backend folder:
 ```
@@ -619,7 +517,7 @@ web: node server.js
 
 3. **Environment Variables**: Add all backend `.env` variables
 
-### CNN Service (Docker + Cloud Run)
+> CNN Service (Docker + Cloud Run)
 
 1. **Build and push to Container Registry**:
 ```bash
@@ -635,7 +533,7 @@ gcloud run deploy cnn-service \
   --allow-unauthenticated
 ```
 
-### RAG Service (Docker + Cloud Run)
+> RAG Service (Docker + Cloud Run)
 
 ```bash
 docker build -t gcr.io/your-project/rag-service ./backend/rag_service
