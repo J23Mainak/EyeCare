@@ -22,68 +22,62 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 ## Features
 
 ### Patient Features
-- **Retina Scan Analysis**: Upload fundus images for AI-powered 5-stage diabetic retinopathy detection
-- **Doctor Finder**: Search nearby ophthalmologists with filters (specialization, rating, distance)
-- **AI Chat Assistant**: Get instant medical information using RAG-powered chat
-- **Health Reminders**: Set medication and appointment reminders with email notifications
-- **Report History**: Track all scan reports with detailed analysis
-- **Secure Authentication**: OTP-based email verification for enhanced security
+- Retina Scan Analysis: Upload fundus images for AI-powered 5-stage diabetic retinopathy detection
+- Doctor Finder: Search nearby ophthalmologists with filters (specialization, rating, distance)
+- AI Chat Assistant: Get instant medical information using RAG-powered chat
+- Health Reminders: Set medication and appointment reminders with email notifications
+- Report History: Track all scan reports with detailed analysis
+- Secure Authentication: OTP-based email verification for enhanced security
 
 ### Admin Features
-- **User Management**: View, search, and manage all users
-- **System Analytics**: Dashboard with statistics and insights
-- **Document Management**: Upload PDFs and URLs to RAG knowledge base
-- **Report Monitoring**: Track all patient scans and results
+- User Management: View, search, and manage all users
+- System Analytics: Dashboard with statistics and insights
+- Document Management: Upload PDFs and URLs to RAG knowledge base
+- Report Monitoring: Track all patient scans and results
 
 ### Technical Features
-- **5-Stage DR Classification**: No DR, Mild, Moderate, Severe, Proliferative DR
-- **Geospatial Search**: Find doctors within specified radius using MongoDB geospatial queries
-- **RAG Architecture**: Retrieval-Augmented Generation for accurate medical responses
-- **Email Notifications**: Automated reminders using Nodemailer with Gmail
-- **Real-time Updates**: WebSocket support for instant notifications
+- 5-Stage DR Classification: No DR, Mild, Moderate, Severe, Proliferative DR
+- RAG Architecture: Retrieval-Augmented Generation for accurate medical responses
+- Email Notifications: Automated reminders using Nodemailer with Gmail
+- Real-time Updates: WebSocket support for instant notifications
 
 ## Tech Stack
 
 ### Frontend
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn/ui
-- **State Management**: React Context API
-- **Routing**: React Router v6
-- **Maps**: Google Maps JavaScript API
-- **HTTP Client**: Axios & Fetch API
+- Framework: React 18 with TypeScript
+- Build Tool: Vite
+- State Management: React Context API
+- Routing: React Router v6
+- Maps: Google Maps JavaScript API
+- HTTP Client: Axios & Fetch API
 
 ### Backend
-- **Runtime**: Node.js 18+
-- **Framework**: Express.js
-- **Database**: MongoDB with Mongoose ODM
-- **Authentication**: JWT + OTP (Email)
-- **Email Service**: Nodemailer with Gmail SMTP
-- **Image Storage**: Cloudinary
-- **Validation**: Express-validator
-- **Security**: Helmet.js, CORS, bcryptjs
+- Runtime: Node.js 18+
+- Framework: Express.js
+- Database: MongoDB with Mongoose ODM
+- Authentication: JWT + OTP (Email)
+- Email Service: Nodemailer with Gmail SMTP
+- Image Storage: Cloudinary
+- Validation: Express-validator
+- Security: Helmet.js, CORS, bcryptjs
 
 ### ML Services
 
-1. CNN Model Service (Port 8501)
-   - **Framework**: TensorFlow/Keras
-   - **API**: FastAPI
-   - **Server**: Uvicorn
-   - **Model**: Custom CNN for DR classification
-   - **Image Processing**: OpenCV, Pillow
+**I. CNN Model Service (Port 8501)**
+   - Framework: TensorFlow/Keras
+   - Server: Uvicorn
+   - Model: Custom CNN for DR classification
+   - Image Processing: OpenCV, Pillow
 
-2. RAG Service (Port 8502)
-   - **Framework**: LangChain
-   - **Vector DB**: ChromaDB
-   - **Embeddings**: Sentence Transformers
-   - **LLM**: Google Gemini API
-   - **API**: FastAPI
-   - **Document Processing**: PyPDF2, BeautifulSoup4
+**II. RAG Service (Port 8502)**
+   - Vector DB: QdrantDB
+   - Embeddings: Sentence Transformers
+   - LLM: Google Gemini 2.5 pro
+   - Document Processing: PyPDF2, BeautifulSoup4
 
 ## Environment Variables
 
-### 1. Frontend `.env`
+### 1) Frontend `.env`
 
 ```env
 # Google Maps API Key (Enable Maps JavaScript API)
@@ -93,7 +87,7 @@ VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
-### 2. Backend `.env`
+### 2) Backend `.env`
 
 ```env
 # MongoDB Connection
@@ -126,7 +120,7 @@ PREDICT_SERVICE_URL=http://127.0.0.1:8501
 RAG_SERVICE_URL=http://127.0.0.1:8502
 ```
 
-### 3. Python Services `.env` (Optional)
+### 3) Python Services `.env` (Optional)
 
 Create a `.env` file in `backend/rag_service/`:
 
@@ -136,20 +130,20 @@ GOOGLE_API_KEY=your_gemini_api_key
 
 ## Installation & Setup
 
-### Clone the Repository
+### 1) Clone the Repository
 
    ```bash
    git clone https://github.com/yourusername/clarity-retina-care.git
    cd clarity-retina-care
    ```
 
-### Install Frontend Dependencies
+### 2) Install Frontend Dependencies
 
    ```bash
    npm install
    ```
 
-### Install Backend Dependencies
+### 3) Install Backend Dependencies
 
    ```bash
    cd backend
@@ -157,7 +151,7 @@ GOOGLE_API_KEY=your_gemini_api_key
    cd ..
    ```
 
-### Setup Python Virtual Environments
+### 4) Setup Python Virtual Environments
 
 - CNN Model Service
 
@@ -191,21 +185,10 @@ GOOGLE_API_KEY=your_gemini_api_key
    cd ../..
    ```
 
-### Configure Environment Variables
+### 5) Setup Environment Variables
+As mentioned in the Environment variables section
 
-- Copy `.env.example` to `.env` in root directory
-- Copy `backend/.env.example` to `backend/.env`
-- Fill in all required API keys and credentials
-
-### Setup MongoDB Database
-
-- Create a MongoDB Atlas account at https://www.mongodb.com/cloud/atlas
-- Create a new cluster
-- Add your IP address to the whitelist
-- Create a database user
-- Copy the connection string to `MONGODB_URI` in `backend/.env`
-
-### Setup Gmail App Password
+### 6) Setup Gmail App Password
 
 - Enable 2-Factor Authentication on your Google account
 - Go to Google Account > Security > App passwords
