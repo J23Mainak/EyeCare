@@ -17,8 +17,6 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **Automated health reminders** with email notifications
 - **Comprehensive patient management** with secure authentication and role-based access
 
----
-
 ## Architecture
 
 ### Frontend
