@@ -42,9 +42,9 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **Email Notifications**: Automated reminders using Nodemailer with Gmail
 - **Real-time Updates**: WebSocket support for instant notifications
 
-### Tech Stack
+## Tech Stack
 
-1. Frontend
+### Frontend
 - **Framework**: React 18 with TypeScript
 - **Build Tool**: Vite
 - **Styling**: Tailwind CSS
@@ -54,7 +54,7 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **Maps**: Google Maps JavaScript API
 - **HTTP Client**: Axios & Fetch API
 
-2. Backend
+### Backend
 - **Runtime**: Node.js 18+
 - **Framework**: Express.js
 - **Database**: MongoDB with Mongoose ODM
@@ -64,26 +64,26 @@ Clarity Retina Care is an end-to-end healthcare platform that combines:
 - **Validation**: Express-validator
 - **Security**: Helmet.js, CORS, bcryptjs
 
-3. ML Services
+### ML Services
 
--> CNN Model Service (Port 8501)
-- **Framework**: TensorFlow/Keras
-- **API**: FastAPI
-- **Server**: Uvicorn
-- **Model**: Custom CNN for DR classification
-- **Image Processing**: OpenCV, Pillow
+1. CNN Model Service (Port 8501)
+   - **Framework**: TensorFlow/Keras
+   - **API**: FastAPI
+   - **Server**: Uvicorn
+   - **Model**: Custom CNN for DR classification
+   - **Image Processing**: OpenCV, Pillow
 
--> RAG Service (Port 8502)
-- **Framework**: LangChain
-- **Vector DB**: ChromaDB
-- **Embeddings**: Sentence Transformers
-- **LLM**: Google Gemini API
-- **API**: FastAPI
-- **Document Processing**: PyPDF2, BeautifulSoup4
+2. RAG Service (Port 8502)
+   - **Framework**: LangChain
+   - **Vector DB**: ChromaDB
+   - **Embeddings**: Sentence Transformers
+   - **LLM**: Google Gemini API
+   - **API**: FastAPI
+   - **Document Processing**: PyPDF2, BeautifulSoup4
 
 ## Environment Variables
 
-1. Frontend `.env`
+### 1. Frontend `.env`
 
 ```env
 # Google Maps API Key (Enable Maps JavaScript API)
@@ -93,7 +93,7 @@ VITE_GOOGLE_MAPS_API_KEY=your_google_maps_api_key
 VITE_API_BASE_URL=http://localhost:5000/api
 ```
 
-2. Backend `.env`
+### 2. Backend `.env`
 
 ```env
 # MongoDB Connection
@@ -126,7 +126,7 @@ PREDICT_SERVICE_URL=http://127.0.0.1:8501
 RAG_SERVICE_URL=http://127.0.0.1:8502
 ```
 
-3. Python Services `.env` (Optional)
+### 3. Python Services `.env` (Optional)
 
 Create a `.env` file in `backend/rag_service/`:
 
@@ -136,68 +136,68 @@ GOOGLE_API_KEY=your_gemini_api_key
 
 ## Installation & Setup
 
-1. Clone the Repository
+### Clone the Repository
 
-```bash
-git clone https://github.com/yourusername/clarity-retina-care.git
-cd clarity-retina-care
-```
+   ```bash
+   git clone https://github.com/yourusername/clarity-retina-care.git
+   cd clarity-retina-care
+   ```
 
-2. Install Frontend Dependencies
+### Install Frontend Dependencies
 
-```bash
-npm install
-```
+   ```bash
+   npm install
+   ```
 
-3. Install Backend Dependencies
+### Install Backend Dependencies
 
-```bash
-cd backend
-npm install
-cd ..
-```
+   ```bash
+   cd backend
+   npm install
+   cd ..
+   ```
 
-4. Setup Python Virtual Environments
+### Setup Python Virtual Environments
 
 - CNN Model Service
 
-```bash
-cd backend/cnn_model
-python -m venv .venv
-
-# Windows
-.venv\Scripts\activate
-
-# macOS/Linux
-source .venv/bin/activate
-
-pip install -r predict_requirements.txt
-cd ../..
-```
+   ```bash
+   cd backend/cnn_model
+   python -m venv .venv
+   
+   # Windows
+   .venv\Scripts\activate
+   
+   # macOS/Linux
+   source .venv/bin/activate
+   
+   pip install -r predict_requirements.txt
+   cd ../..
+   ```
 
 - RAG Service
 
-```bash
-cd backend/rag_service
-python -m venv .venv
+   ```bash
+   cd backend/rag_service
+   python -m venv .venv
+   
+   # Windows
+   .venv\Scripts\activate
+   
+   # macOS/Linux
+   source .venv/bin/activate
+   
+   pip install -r requirements.txt
+   cd ../..
+   ```
 
-# Windows
-.venv\Scripts\activate
-
-# macOS/Linux
-source .venv/bin/activate
-
-pip install -r requirements.txt
-cd ../..
-```
-
-5. Configure Environment Variables
+### Configure Environment Variables
 
 - Copy `.env.example` to `.env` in root directory
 - Copy `backend/.env.example` to `backend/.env`
 - Fill in all required API keys and credentials
 
-6. Setup MongoDB Database
+### Setup MongoDB Database
 
 - Create a MongoDB Atlas account at https://www.mongodb.com/cloud/atlas
 - Create a new cluster
@@ -205,7 +205,7 @@ cd ../..
 - Create a database user
 - Copy the connection string to `MONGODB_URI` in `backend/.env`
 
-7. Setup Gmail App Password
+### Setup Gmail App Password
 
 - Enable 2-Factor Authentication on your Google account
 - Go to Google Account > Security > App passwords
@@ -219,108 +219,78 @@ You need to run **4 services** simultaneously. Open 4 separate terminal windows:
 
 `>_` Terminal 1: Frontend
 
-```bash
-npm run dev
-```
-Frontend runs at: http://localhost:5173
+   ```bash
+   # Frontend runs at: http://localhost:5173
+   npm run dev
+   ```
 
 `>_` Terminal 2: Backend API
 
-```bash
-cd backend
-npm run dev
-```
-Backend API runs at: http://localhost:5000
+   ```bash
+   cd backend
+
+   # Backend API runs at: http://localhost:5000
+   npm run dev
+   ```
 
 `>_` Terminal 3: CNN Model Service
 
-```bash
-cd backend/cnn_model
-
-# Activate virtual environment
-# Windows:
-.venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
-
-# Start service
-uvicorn predict_service:app --reload --port 8501
-```
-CNN Service runs at: http://localhost:8501
+   ```bash
+   cd backend/cnn_model
+   
+   # Activate virtual environment
+   # Windows:
+   .venv\Scripts\activate
+   # macOS/Linux:
+   source .venv/bin/activate
+   
+   # Start service, CNN Service runs at: http://localhost:8501
+   uvicorn predict_service:app --reload --port 8501
+   ```
 
 `>_` Terminal 4: RAG Chat Service
 
-```bash
-cd backend/rag_service
-
-# Activate virtual environment
-# Windows:
-.venv\Scripts\activate
-# macOS/Linux:
-source .venv/bin/activate
-
-# Start service
-uvicorn main:app --reload --port 8502
-```
-RAG Service runs at: http://localhost:8502
+   ```bash
+   cd backend/rag_service
+   
+   # Activate virtual environment
+   # Windows:
+   .venv\Scripts\activate
+   # macOS/Linux:
+   source .venv/bin/activate
+   
+   # Start service, RAG Service runs at: http://localhost:8502
+   uvicorn main:app --reload --port 8502
+   ```
 
 ## Production Deployment
 
-### Frontend (Vercel/Netlify)
+- Frontend (Vercel/Netlify)
+- Backend (Railway/Render)
+- CNN Service (Docker + Cloud Run)
+   
+   I. Build and push to Container Registry:
+   ```bash
+   docker build -t gcr.io/your-project/cnn-service ./backend/cnn_model
+   docker push gcr.io/your-project/cnn-service
+   ```
+   
+   II. Deploy to Google Cloud Run:
+   ```bash
+   gcloud run deploy cnn-service \
+     --image gcr.io/your-project/cnn-service \
+     --port 8501 \
+     --allow-unauthenticated
+   ```
 
-1. **Build the project**:
-```bash
-npm run build
-```
+- RAG Service (Docker + Cloud Run)
 
-2. **Deploy to Vercel**:
-```bash
-npm install -g vercel
-vercel --prod
-```
-
-3. **Environment Variables**: Add in Vercel dashboard
-   - `VITE_GOOGLE_MAPS_API_KEY`
-   - `VITE_API_BASE_URL` (your backend URL)
-
-### Backend (Railway/Render)
-
-1. **Create `Procfile`** in backend folder:
-```
-web: node server.js
-```
-
-2. **Deploy to Render**:
-   - Connect GitHub repository
-   - Set environment variables
-   - Deploy automatically
-
-3. **Environment Variables**: Add all backend `.env` variables
-
-### CNN Service (Docker + Cloud Run)
-
-1. **Build and push to Container Registry**:
-```bash
-docker build -t gcr.io/your-project/cnn-service ./backend/cnn_model
-docker push gcr.io/your-project/cnn-service
-```
-
-2. **Deploy to Google Cloud Run**:
-```bash
-gcloud run deploy cnn-service \
-  --image gcr.io/your-project/cnn-service \
-  --port 8501 \
-  --allow-unauthenticated
-```
-
-### RAG Service (Docker + Cloud Run)
-
-```bash
-docker build -t gcr.io/your-project/rag-service ./backend/rag_service
-docker push gcr.io/your-project/rag-service
-
-gcloud run deploy rag-service \
-  --image gcr.io/your-project/rag-service \
-  --port 8502 \
-  --set-env-vars GOOGLE_API_KEY=your_key
-```
+   ```bash
+   docker build -t gcr.io/your-project/rag-service ./backend/rag_service
+   docker push gcr.io/your-project/rag-service
+   
+   gcloud run deploy rag-service \
+     --image gcr.io/your-project/rag-service \
+     --port 8502 \
+     --set-env-vars GOOGLE_API_KEY=your_key
+   ```
