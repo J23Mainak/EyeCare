@@ -263,7 +263,7 @@ GOOGLE_API_KEY=your_gemini_api_key
 
 ---
 
->> Installation & Setup
+> Installation & Setup
 
 1> Clone the Repository
 
